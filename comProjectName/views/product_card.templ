@@ -1,0 +1,50 @@
+package views
+
+// Product defines the data shape matching your collection items
+type Product struct {
+	Title string
+	Image string
+	Price string
+	Tag   string
+}
+
+templ ProductCard(product Product) {
+	<div class="product-card">
+		<div class="product-image-wrapper">
+			<img
+				src={ product.Image }
+				alt={ product.Title }
+				class="product-image"
+			/>
+		</div>
+
+		<div class="px-8 pb-8 relative z-10">
+			<div class="flex items-center justify-between">
+				<span class="artisan-tag">
+					{ product.Tag }
+				</span>
+				<div class="product-ornament">
+					✦
+				</div>
+			</div>
+
+			<h3 class="heading-font text-4xl mt-6 leading-tight">
+				{ product.Title }
+			</h3>
+
+			<p class="text-[#5A4638] leading-relaxed mt-4">
+				Crafted with carefully selected natural
+				ingredients inspired by traditional herbal practices.
+			</p>
+
+			<div class="mt-8 flex items-center justify-between">
+				<span class="text-2xl font-semibold text-[#4E5B31]">
+					{ product.Price }
+				</span>
+				<button class="primary-btn">
+					View Product
+				</button>
+			</div>
+		</div>
+	</div>
+}

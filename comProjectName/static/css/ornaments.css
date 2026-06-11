@@ -1,0 +1,81 @@
+/* ================= FIXED FESTIVE FRAME ================= */
+
+.frame-corner {
+  position: fixed;
+  width: 130px;
+  height: 130px;
+
+  z-index: 50;
+  pointer-events: none;
+
+  opacity: 0.8;
+}
+
+/* CORNERS */
+
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* SIDE BORDERS */
+
+.side-border {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+
+  width: 36px;
+
+  z-index: 40;
+  pointer-events: none;
+
+  opacity: 0.18;
+}
+
+.side-left {
+  left: 0;
+}
+
+.side-right {
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .frame-corner {
+    width: 90px;
+    height: 90px;
+    opacity: 0.55;
+  }
+
+  .side-border {
+    width: 20px;
+    opacity: 0.1;
+  }
+}
+
+.frame-corner,
+.side-border {
+  z-index: var(--layer-frame);
+}

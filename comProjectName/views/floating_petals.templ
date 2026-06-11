@@ -1,0 +1,38 @@
+package views
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+// Helper structures to generate procedural particle seeds server-side
+type PetalConfig struct {
+	Left     float64
+	Duration float64
+	Delay    float64
+	Size     float64
+	Symbol   string
+}
+
+templ FloatingPetals() {
+	<div class="petals-container">
+		for i := 0; i < 18; i++ {
+			// Generate pure server-side deterministic attributes mimicking the useMemo metrics
+			// Seeded locally per execution cycle
+			{{
+				left := rand.Float64() * 100
+				duration := 14.0 + (rand.Float64() * 12.0)
+				delay := rand.Float64() * 10.0
+				size := 18.0 + (rand.Float64() * 18.0)
+				symbol := "❀"
+				if rand.Float64() > 0.5 {
+					symbol = "✿"
+				}
+				styleString := fmt.Sprintf("left: %.2f%%; animation-duration: %.2fs; animation-delay: %.2fs; font-size: %.2fpx;", left, duration, delay, size)
+			}}
+			<div class="petal" style={ styleString }>
+				{ symbol }
+			</div>
+		}
+	</div>
+}

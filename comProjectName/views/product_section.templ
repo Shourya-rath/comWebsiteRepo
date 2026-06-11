@@ -1,0 +1,67 @@
+package views
+
+// Define the static product catalog data locally matching your state definition
+var products = []Product{
+	{
+		Title: "Tulsi Herbal Tea",
+		Image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop",
+		Price: "₹199",
+		Tag:   "Wellness",
+	},
+	{
+		Title: "Neem Face Pack",
+		Image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=1200&auto=format&fit=crop",
+		Price: "₹299",
+		Tag:   "Skincare",
+	},
+	{
+		Title: "Herbal Hair Powder",
+		Image: "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?q=80&w=1200&auto=format&fit=crop",
+		Price: "₹349",
+		Tag:   "Hair Care",
+	},
+}
+
+templ ProductSection() {
+	<section class="py-32 relative product-section-bg paper-texture">
+		<div class="content-width">
+			<div class="text-center">
+				<p class="subheading text-[#d86060]">Herbal Collection</p>
+				<h2 class="heading-font text-5xl md:text-7xl mt-6 text-[#daa520]">
+					Crafted With
+					<br/>
+					Traditional Care
+				</h2>
+				
+				@SectionDivider()
+				
+				<p class="max-w-3xl mx-auto text-lg leading-relaxed text-[#daa520]">
+					Discover handcrafted herbal products rooted in nature, festive
+					warmth, and generations of Indian traditions.
+				</p>
+			</div>
+
+			<div class="grid lg:grid-cols-3 gap-10 mt-20">
+				for _, item := range products {
+					@ProductCard(item)
+				}
+			</div>
+
+			<div class="festive-panel mt-24 px-10 py-20 text-center">
+				<p class="subheading text-[#E7C978]">Traditional Wellness</p>
+				<h3 class="heading-font text-5xl mt-6">
+					Bring Festive
+					<br/>
+					Herbal Warmth Home
+				</h3>
+				<p class="max-w-2xl mx-auto mt-8 text-[#E9E2D5] leading-relaxed">
+					Inspired by Indian festive traditions, handcrafted herbal
+					ingredients, and timeless wellness rituals.
+				</p>
+				<button class="mt-10 secondary-btn bg-white/10 text-white border-white/20">
+					Explore Collection
+				</button>
+			</div>
+		</div>
+	</section>
+}

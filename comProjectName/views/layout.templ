@@ -1,0 +1,32 @@
+package views
+import (
+	"time"
+	"fmt"
+)
+
+templ ViewsLayout(title string, contents templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<!--<link rel="icon" type="image/svg+xml" href="/static/favicon.svg"/>-->
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title }</title>
+			
+			<!-- Datastar Active Hypermedia Engine -->
+			<script type="module" defer src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.0-beta.1/bundles/datastar.js">
+			</script>
+			
+			<!-- Tailwind and DaisyUI CDN -->
+			{{var StyleVersion = fmt.Sprintf("%d", time.Now().Unix())}}
+        	<link rel="stylesheet" href={ "/static/css/output.css?v=" + StyleVersion }>
+			<!-- <link rel="stylesheet" href="/static/css/output.css"/> -->
+			
+			<link rel="stylesheet" href="/static/css/theme.css"/>
+			<link rel="stylesheet" href="/static/css/ornaments.css"/>
+		</head>
+		<body>
+			@contents
+		</body>
+	</html>
+}

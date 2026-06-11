@@ -1,0 +1,763 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Hind:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #000;
+  --paper: #F3E4D1;
+
+  --green: #4E5B31;
+  --green-dark: #374122;
+
+  --gold: #C8A44D;
+  --gold-soft: #D9BC72;
+
+  --red: #8C2F2F;
+  --terracotta: #C46A2D;
+
+  --text: #3B2B20;
+  --text-soft: #5A4638;
+
+  --layer-atmosphere: 1;
+}
+
+* {
+  box-sizing: border-box;
+  transform-style: flat;
+  
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Hind', sans-serif;
+  overflow-x: hidden;
+}
+
+/* soften section backgrounds */
+/* .product-section-bg {
+  background:
+    rgba(247,235,221,0.85),   
+    repeating-linear-gradient(
+      45deg,
+      rgba(200,164,77,0.04),
+      rgba(200,164,77,0.04) 2px,
+      transparent 2px,
+      transparent 12px
+    )     
+} */
+
+/* ================= TYPOGRAPHY ================= */
+
+.heading-font {
+  font-family: 'Cinzel', serif;
+}
+
+.subheading {
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-size: 0.85rem;
+}
+
+/* ================= CONTAINERS ================= */
+
+.page-container {
+  position: relative;
+  z-index: 2;
+}
+
+.content-width {
+  width: min(1200px, 90%);
+  margin-inline: auto;
+}
+
+/* ================= PAPER TEXTURE ================= */
+
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+
+  background-size: 16px 16px;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ================= MANDALA ================= */
+
+.mandala-bg {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle,
+      rgba(200,164,77,0.06) 1px,
+      transparent 1px);
+
+  background-size: 32px 32px;
+
+  opacity: 0.4;
+}
+
+/* ================= DIVIDER ================= */
+
+.section-divider {
+  width: 180px;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+/* ================= BUTTONS ================= */
+
+.primary-btn {
+  background: var(--green);
+  color: white;
+
+  padding: 14px 34px;
+  border-radius: 999px;
+  border: none;
+
+  cursor: pointer;
+
+  transition: 0.35s ease;
+}
+
+.primary-btn:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: transparent;
+
+  /* color: var(--text); */
+  color: white;
+
+  border: 1px solid var(--gold);
+
+  padding: 14px 34px;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  transition: 0.35s ease;
+}
+
+.secondary-btn:hover {
+  background: rgba(200,164,77,0.12);
+}
+
+/* ================= SHADOW ================= */
+
+.soft-shadow {
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(200,164,77,0.15);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes glow {
+  0%,100% {
+    opacity: 0.75;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes floatSlow {
+  0%,100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-glow {
+  animation: glow 5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+/* ================= PRODUCT SECTION ================= */
+
+.product-section-bg {
+  background:
+  linear-gradient( rgba(66, 0, 0, 0.5), rgba(255,255,255,0.25) ), repeating-linear-gradient( 45deg, rgba(77, 61, 23, 0.66), rgba(237, 168, 0, 0.04) 2px, transparent 2px, transparent 12px );
+  /* linear-gradient(
+      rgba(255,255,255,0.25),
+      rgba(255,255,255,0.25)
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(200,164,77,0.04),
+      rgba(200,164,77,0.04) 2px,
+      transparent 2px,
+      transparent 12px
+    ); */
+
+  position: relative;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.product-card {
+  position: relative;
+
+  background: #F5E7D4;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  transition: 0.4s ease;
+
+  border:
+    1px solid rgba(200,164,77,0.25);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 12px;
+
+  border:
+    1px solid rgba(200,164,77,0.25);
+
+  border-radius: 20px;
+
+  pointer-events: none;
+}
+
+/* ================= PRODUCT IMAGE ================= */
+
+.product-image-wrapper {
+  position: relative;
+  padding: 20px;
+}
+
+.product-image {
+  width: 100%;
+  height: 320px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  transition: 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.04);
+}
+
+/* ================= PRODUCT ORNAMENT ================= */
+
+.product-ornament {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(200,164,77,0.15);
+
+  border:
+    1px solid rgba(200,164,77,0.3);
+
+  color: var(--terracotta);
+
+  font-size: 1rem;
+}
+
+/* ================= TAG ================= */
+
+.artisan-tag {
+  display: inline-block;
+
+  padding:
+    8px 18px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(140,47,47,0.08);
+
+  color: var(--red);
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ================= FESTIVE PANEL ================= */
+
+.festive-panel {
+  background:
+    linear-gradient(
+      135deg,
+      #4E5B31,
+      #374122
+    );
+
+  color: white;
+
+  border-radius: 36px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.festive-panel::before {
+  content: "";
+
+  position: absolute;
+  inset: 16px;
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  border-radius: 28px;
+
+  pointer-events: none;
+}
+
+/* ================= PETALS ================= */
+
+.petals-container {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.petal {
+  position: absolute;
+
+  color: rgba(196,106,45,0.22);
+
+  animation:
+    petalFloat linear infinite;
+}
+
+@keyframes petalFloat {
+  0% {
+    transform:
+      translateY(-120px)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateY(120vh)
+      rotate(360deg);
+
+    opacity: 0;
+  }
+}
+
+/* ================= DIYA GLOW ================= */
+
+.diya-glow {
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 999px;
+
+  background:
+    radial-gradient(
+      rgba(255,190,80,0.22),
+      transparent 70%
+    );
+
+  filter: blur(30px);
+
+  animation:
+    diyaPulse 6s ease-in-out infinite;
+}
+
+@keyframes diyaPulse {
+  0%,100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+/* ================= FESTIVE NAVBAR ================= */
+
+.festive-navbar {
+  position: fixed;
+
+  top: 18px;
+  left: 50%;
+
+  transform: translateX(-50%);
+  width: min(1100px, 92%);
+  z-index: 100;
+  padding: 8px 28px 8px 28px;
+  border-radius: 20px;
+  background:
+    rgba(247,235,221,0.78);
+
+  backdrop-filter: blur(12px);
+
+  border:
+    1px solid rgba(200,164,77,0.22);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* ================= QUOTE PANEL ================= */
+
+.quote-panel {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #F5E7D4,
+      #F0DEC7
+    );
+
+  border-radius: 36px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(200,164,77,0.18);
+}
+
+.quote-panel::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 16px;
+
+  border:
+    1px solid rgba(200,164,77,0.18);
+
+  border-radius: 28px;
+
+  pointer-events: none;
+}
+/* ================= RANGOLI BACKGROUND LAYER ================= */
+
+.rangoli-bg {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  z-index: var(--layer-atmosphere);
+
+  opacity: 0.28; /* 🔥 increased significantly */
+}
+
+/* ================= SVG ================= */
+
+.rangoli-svg {
+  width: 900px;
+  height: 900px;
+
+  fill: none;
+
+  /* 🔥 MUCH stronger stroke */
+  stroke: rgba(120, 80, 30, 0.55);
+
+  stroke-width: 1.4;
+
+  /* IMPORTANT: remove blend mode completely */
+  mix-blend-mode: normal;
+
+  /* subtle softness only */
+  filter: blur(0.15px);
+
+  transform-origin: center;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes slowRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.02);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.rangoli-svg {
+  animation: slowRotate 70s linear infinite;
+}
+
+/* optional subtle glow breathing */
+@keyframes gentleGlow {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+}
+
+.rangoli-svg {
+  animation:
+    slowRotate 70s linear infinite,
+    gentleGlow 8s ease-in-out infinite;
+}
+
+
+/* ================= RANGOLI SYSTEM WRAPPER ================= */
+
+.rangoli-system {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: var(--layer-atmosphere);
+  
+}
+
+/* shared layer base */
+.rangoli-layer {
+  position: absolute;
+  inset: 0;
+
+  margin: auto;
+
+  width: 900px;
+  height: 900px;
+
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  fill: none;
+  stroke: rgba(120, 80, 30, 0.35);
+}
+
+/* ================= LAYER 1 — FAR ================= */
+
+.rangoli-far {
+  width: 1200px;
+  height: 1200px;
+
+  stroke: rgba(120, 80, 30, 0.08);
+
+  animation: slowRotateFar 140s linear infinite;
+}
+
+/* ================= LAYER 2 — MID ================= */
+
+.rangoli-mid {
+  stroke: rgba(120, 80, 30, 0.45);
+  stroke-width: 1.2;
+
+  animation: slowRotateMid 80s linear infinite;
+}
+
+/* ================= LAYER 3 — NOISE ================= */
+
+.rangoli-noise {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(rgba(120,80,30,0.08) 1px, transparent 1px);
+
+  background-size: 18px 18px;
+
+  opacity: 0.35;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes slowRotateFar {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes slowRotateMid {
+  0% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+  50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.02); }
+  100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+}
+/* linear-gradient( rgba(66, 0, 0, 0.5), rgba(255,255,255,0.25) ), repeating-linear-gradient( 45deg, rgba(77, 61, 23, 0.66), rgba(237, 168, 0, 0.04) 2px, transparent 2px, transparent 12px ) */
+
+
+/* ================= SCROLL SYSTEM ================= */
+
+.scroll-container {
+  position: relative;
+}
+
+/* each section becomes a “scene” */
+.scroll-section {
+  min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= ATMOSPHERE REACTION ================= */
+
+/* HERO = strongest energy */
+.hero-section ~ .rangoli-system {
+  opacity: 0.22;
+}
+
+/* PRODUCT = calm balanced */
+.product-section ~ .rangoli-system {
+  opacity: 0.16;
+}
+
+/* HERITAGE = meditative */
+.heritage-section ~ .rangoli-system {
+  opacity: 0.10;
+}
+
+.GoldenSectionMainHeading{
+  color:goldenrod
+}
+
+/* Reusable global glass textures found in your tailwind definitions */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+/* System scrollbar layouts fully restored */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#7c3aed, #06b6d4);
+  border-radius: 999px;
+}
+
+/* ------------Stying for components specifically--------------- */
+
+/* ================= DARK APP ADAPTATIONS ================= */
+
+/* Elevated dark containers to replace light backgrounds on pure black */
+.dark-app-card {
+  position: relative;
+  background: #12100e; /* Deep dark charcoal-wood ink tint */
+  border: 1px solid rgba(200, 164, 77, 0.2); /* Soft gold trim */
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.dark-app-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(200, 164, 77, 0.08);
+}
+
+/* Subtle gold/brown glow wrapper for app images */
+.dark-image-wrapper {
+  background: #1a1612;
+  border-bottom: 1px solid rgba(200, 164, 77, 0.1);
+}
+
+/* Breadcrumbs designed explicitly for black backgrounds */
+.dark-breadcrumb {
+  background: rgba(200, 164, 77, 0.05);
+  color: var(--gold-soft);
+  border: 1px solid rgba(200, 164, 77, 0.25);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.dark-breadcrumb:hover {
+  background: var(--green);
+  color: #ffffff;
+  border-color: var(--green);
+  box-shadow: 0 0 15px rgba(78, 91, 49, 0.4);
+}
+
+/* Dynamic Text adjustments for application grids */
+.text-app-primary {
+  color: #F3E4D1; /* Bringing your paper color up as clear, highly-readable text */
+}
+
+.text-app-muted {
+  color: #A69282; /* Soft mid-tone for secondary metadata */
+}
+
+#productContainer{
+  background-color: #020a29;
+  color: #eaeaea;
+}

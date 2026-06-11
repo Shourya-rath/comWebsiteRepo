@@ -1,0 +1,58 @@
+package views
+
+templ OrnamentalBorder(position string) {
+	<svg
+		class={ "frame-corner " + position + " animate-glow" }
+		viewBox="0 0 100 100"
+		fill="none"
+	>
+		<path
+			d="
+          M4 96
+          Q4 40 40 40
+          Q72 40 72 8
+        "
+			stroke="#C8A44D"
+			stroke-width="2"
+		></path>
+
+		<path
+			d="
+          M18 82
+          Q18 55 40 55
+          Q58 55 58 24
+        "
+			stroke="#C46A2D"
+			stroke-width="1.5"
+		></path>
+
+		<circle
+			cx="72"
+			cy="8"
+			r="4"
+			fill="#C8A44D"
+		></circle>
+
+		<circle cx="40" cy="40" r="3" fill="#8C2F2F"></circle>
+
+		<path
+			d="M40 30 Q44 36 40 40 Q36 36 40 30"
+			fill="#C46A2D"
+		></path>
+
+		<path
+			d="M50 40 Q44 44 40 40 Q44 36 50 40"
+			fill="#C46A2D"
+		></path>
+
+		<path
+			d="M40 50 Q36 44 40 40 Q44 44 40 50"
+			fill="#C46A2D"
+		></path>
+
+		<path
+			d="M30 40 Q36 36 40 40 Q36 44 30 40"
+			fill="#C46A2D"
+		></path>
+	</svg>
+}
