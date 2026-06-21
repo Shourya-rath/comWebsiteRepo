@@ -37,19 +37,19 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = OrnamentalBorder("top-left").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = OrnamentalBorder("top-left", true).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = OrnamentalBorder("top-right").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = OrnamentalBorder("top-right", true).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = OrnamentalBorder("bottom-left").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = OrnamentalBorder("bottom-left", true).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = OrnamentalBorder("bottom-right").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = OrnamentalBorder("bottom-right", true).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

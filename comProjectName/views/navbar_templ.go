@@ -29,7 +29,7 @@ func Navbar() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"festive-navbar\"><div class=\"flex items-center justify-between\"><div><h1 class=\"heading-font text-3xl text-[#4E5B31]\">Vanaushadhi</h1><p class=\"text-xs tracking-[0.25em] uppercase text-[#8C2F2F]\">Herbal Traditions</p></div><div class=\"hidden md:flex items-center gap-10 text-[#5A4638]\"><a href=\"#\">Home</a> <a href=\"/shop\">Collection</a> <a href=\"#\">Tradition</a> <a href=\"#\">Contact</a></div></div></nav>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"festive-navbar\"><div class=\"flex items-center justify-between\"><div><h1 class=\"heading-font text-3xl text-[#4E5B31]\">Vanaushadhi</h1><p class=\"text-xs tracking-[0.25em] uppercase text-[#8C2F2F]\">Herbal Traditions</p></div><div class=\"hidden md:flex items-center gap-10 text-[#5A4638]\"><a href=\"#\">Home</a> <a href=\"/shop\">Collection</a><!--\n\t\t\t\t<a href=\"#\">Tradition</a>\n\t\t\t\t--><a href=\"/contact\">Contact</a></div></div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

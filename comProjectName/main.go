@@ -252,6 +252,26 @@ func LandingPage(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "Internal Server Error", http.StatusInternalServerError)
     }
 }
+func ContactPage(w http.ResponseWriter, r *http.Request) {
+    // Prevent root route from grabbing random subpaths
+    // if r.URL.Path != "/contact" {
+    //     http.NotFound(w, r)
+    //     return
+    // }
+
+    pageTitle := "Vanaushadhi | Contact Us"
+    
+    // Compose your new landing layouts together (from your "comWebsite/views" directory)
+    // Make sure your import statement at the top reads: "comWebsite/views"
+    component := views.ViewsLayout(pageTitle, views.ContactSection())
+
+    w.Header().Set("Content-Type", "text/html; charset=utf-8")
+    err := component.Render(r.Context(), w)
+    if err != nil {
+        fmt.Printf("Pipeline Error rendering landing layouts: %v\n", err)
+        http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+    }
+}
 /* type Product struct {
 	ID          int
 	NameEn      string
@@ -290,7 +310,8 @@ func main() {
     http.Handle("/static/", http.StripPrefix("/static/", fs))
 
     http.HandleFunc("/", LandingPage)                           
-    http.HandleFunc("/shop", Home)                              
+    http.HandleFunc("/shop", Home)  
+    http.HandleFunc("/contact/",ContactPage)                            
     http.HandleFunc("/products/",ProductsPage)
     http.HandleFunc("/products/next", HandleNextProducts)
     http.HandleFunc("/products/search", HandleSearchProducts)

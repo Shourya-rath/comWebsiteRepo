@@ -1,8 +1,16 @@
 package views
 
-templ OrnamentalBorder(position string) {
+templ OrnamentalBorder(position string, fixed bool) {
+	{{ className := "frame-corner " + position + " animate-glow" }}
+
+	{{ if fixed {
+		className = className + " is-fixed"
+	} else {
+		className = className + " is-flow"
+	} }}
+
 	<svg
-		class={ "frame-corner " + position + " animate-glow" }
+		class={ "frame-corner " + className + " animate-glow" }
 		viewBox="0 0 100 100"
 		fill="none"
 	>

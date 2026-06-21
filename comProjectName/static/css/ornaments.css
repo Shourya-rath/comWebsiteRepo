@@ -1,7 +1,7 @@
 /* ================= FIXED FESTIVE FRAME ================= */
 
 .frame-corner {
-  position: fixed;
+  /* position: fixed; */
   width: 130px;
   height: 130px;
 
@@ -78,4 +78,12 @@
 .frame-corner,
 .side-border {
   z-index: var(--layer-frame);
+}
+
+.frame-corner.is-fixed {
+  position: fixed;
+}
+
+.frame-corner.is-flow {
+  position: absolute;
 }
