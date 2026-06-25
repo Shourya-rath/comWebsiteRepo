@@ -306,8 +306,23 @@ func main() {
 	
     
     // 2. Serve Static Assets (Important for output.css, theme.css, and images)
+    // fs := http.FileServer(http.Dir("static"))
+    // http.Handle("/static/", http.StripPrefix("/static/", fs))
+    // Inside your main.go file
+
     fs := http.FileServer(http.Dir("static"))
-    http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+    // Create a custom handler to fix Vercel's missing MIME type environment maps
+    staticHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        if strings.HasSuffix(r.URL.Path, ".css") {
+            w.Header().Set("Content-Type", "text/css; charset=utf-8")
+        }
+        // Strip the prefix and serve the file via standard FileServer
+        http.StripPrefix("/static/", fs).ServeHTTP(w, r)
+    })
+
+    // Bind it to your mux
+    http.Handle("/static/", staticHandler)
 
     http.HandleFunc("/", LandingPage)                           
     http.HandleFunc("/shop", Home)  

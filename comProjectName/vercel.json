@@ -1,14 +1,10 @@
 {
   "version": 2,
   "buildCommand": null,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/main.go"
+      "source": "/(.*)",
+      "destination": "/main.go"
     }
   ]
 }
