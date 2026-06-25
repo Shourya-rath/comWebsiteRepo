@@ -68,7 +68,27 @@ func Layout(title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><!-- <link rel=\"stylesheet\" href=\"/static/css/output.css\"/> --><link rel=\"stylesheet\" href=\"/static/css/theme.css\"></head><!--<body class=\"bg-base-200 paper-texture min-h-screen relative overflow-x-hidden\">--><body class=\"paper-texture min-h-screen relative overflow-x-hidden\" style=\"background-color: var(--bg);\"><!-- Navbar --><!-- <div class=\"navbar bg-base-100 shadow-md px-6\">--><!--     <div class=\"flex-1\">--><!--     <a href=\"/\" class=\"text-xl font-bold\">Home</a>--><!--    </div>--><!--    <div class=\"flex-none\">--><!--    <button class=\"btn btn-ghost\">Cart 🛒</button>--><!--    </div>--><!-- </div>--><nav class=\"festive-navbar\"><div class=\"flex items-center justify-between\"><div><h1 class=\"heading-font text-3xl text-[#4E5B31]\"><a href=\"/\">Home</a></h1><p class=\"text-xs tracking-[0.25em] uppercase text-[#8C2F2F]\">Herbal Traditions</p></div><div class=\"flex items-center gap-6 text-[#5A4638]\"><a href=\"/shop\" class=\"hover:text-[#8C2F2F] transition-colors\">Collection</a> <button class=\"btn btn-ghost text-lg\">Cart 🛒</button></div></div></nav><main class=\"page-container\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><!-- <link rel=\"stylesheet\" href=\"/static/css/output.css\"/> --><link rel=\"stylesheet\" href=\"/static/css/theme.css\"></head>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if false {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<body class=\"bg-base-200 paper-texture min-h-screen relative overflow-x-hidden\"></body>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<body class=\"paper-texture min-h-screen relative overflow-x-hidden\" style=\"background-color: var(--bg);\"><nav class=\"festive-navbar\"><div class=\"flex items-center justify-between\"><div><h1 class=\"heading-font text-3xl text-[#4E5B31]\"><a href=\"/\">Home</a></h1><p class=\"text-xs tracking-[0.25em] uppercase text-[#8C2F2F]\">Herbal Traditions</p></div><div class=\"flex items-center gap-6 text-[#5A4638]\"><a href=\"/shop\" class=\"hover:text-[#8C2F2F] transition-colors\">Collection</a> ")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if false {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<button class=\"btn btn-ghost text-lg\">Cart 🛒</button> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<a href=\"/contact\" class=\"hover:text-[#8C2F2F] transition-colors\">Contact Us</a></div></div></nav><main class=\"page-container\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -76,7 +96,7 @@ func Layout(title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</main></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</main></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -105,20 +125,39 @@ func CategoryBreadcrumb(str string) templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<!-- <button class=\"px-5 py-2 border border-[#C8A44D]/40 text-sm tracking-wide text-[#5A4638] rounded-full bg-[#F3E4D1]/40 hover:bg-[#4E5B31] hover:text-white transition-all duration-300\" \n            onclick=\"filterCategory('str')\">\n        {str}\n    </button> --><button class=\"px-5 py-2 border border-[#C8A44D]/30 text-sm tracking-wide text-[#D9BC72] rounded-full bg-[#1A1612]/60 hover:bg-[#4E5B31] hover:text-white hover:border-[#4E5B31] transition-all duration-300 cursor-pointer\" onclick=\"filterCategory('str')\">")
+		if false {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<button class=\"px-5 py-2 border border-[#C8A44D]/40 text-sm tracking-wide text-[#5A4638] rounded-full bg-[#F3E4D1]/40 hover:bg-[#4E5B31] hover:text-white transition-all duration-300\" onclick=\"filterCategory('str')\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var5 string
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(str)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 70, Col: 16}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</button> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<button class=\"px-5 py-2 border border-[#C8A44D]/30 text-sm tracking-wide text-[#D9BC72] rounded-full bg-[#1A1612]/60 hover:bg-[#4E5B31] hover:text-white hover:border-[#4E5B31] transition-all duration-300 cursor-pointer\" onclick=\"filterCategory('str')\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var5 string
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(str)
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(str)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 78, Col: 12}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 77, Col: 12}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</button>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</button>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -146,12 +185,12 @@ func SearchSection(products_arr []backend.Product) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var6 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var6 == nil {
-			templ_7745c5c3_Var6 = templ.NopComponent
+		templ_7745c5c3_Var7 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var7 == nil {
+			templ_7745c5c3_Var7 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Var7 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_Var8 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
 			if !templ_7745c5c3_IsBuffer {
@@ -163,7 +202,17 @@ func SearchSection(products_arr []backend.Product) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<div class=\"content-width py-16 relative z-10\" data-signals=\"{search: ''}\"><div class=\"text-center mb-16\"><p class=\"subheading text-[#d86060]\">Artesian Catalog</p><h1 class=\"heading-font text-5xl mt-4 text-[#daa520]\">Search Traditional Powders</h1></div><!-- <div class=\"max-w-3xl mx-auto mb-12\">\n                <div class=\"flex gap-3 bg-[#F3E4D1]/40 p-2 rounded-xl border border-[#C8A44D]/30 backdrop-blur-sm\">\n                    <input id=\"searchInput\"\n                           type=\"text\"\n                           data-bind=\"search\"\n                           data-on:input__debounce.500ms=\"@post('/products/search')\"\n                           data-on:keydown=\"evt.key === 'Enter' && @post('/products/search')\"\n                           placeholder=\"Search wellness mixes, herbal teas...\"\n                           class=\"input input-bordered w-full bg-white/70 border-[#C8A44D]/20 focus:border-[#4E5B31] focus:outline-none\" />\n\n                    <button data-on:click=\"@post('/products/search')\"\n                            class=\"primary-btn shrink-0 py-2 px-6\">\n                        Search\n                    </button>\n                </div>\n            </div> --><div class=\"max-w-3xl mx-auto mb-12\"><div class=\"flex gap-3 bg-[#12100E] p-2 rounded-xl border border-[#C8A44D]/25 backdrop-blur-sm shadow-xl\"><input id=\"searchInput\" type=\"text\" data-bind=\"search\" data-on:input__debounce.500ms=\"@post('/products/search')\" data-on:keydown=\"evt.key === 'Enter' && @post('/products/search')\" placeholder=\"Search wellness mixes, herbal teas...\" class=\"input input-bordered w-full bg-[#1A1713] text-[#F3E4D1] border-[#C8A44D]/15 focus:border-[#4E5B31] focus:outline-none placeholder:text-neutral-500\"> <button data-on:click=\"@post('/products/search')\" class=\"primary-btn shrink-0 py-2 px-6\">Search</button></div></div><div class=\"mb-12 flex flex-wrap justify-center gap-4\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "<div class=\"content-width py-16 relative z-10\" data-signals=\"{search: ''}\"><div class=\"text-center mb-16\"><p class=\"subheading text-[#d86060]\">Artesian Catalog</p><h1 class=\"heading-font text-5xl mt-4 text-[#daa520]\">Search Traditional Powders</h1></div>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if false {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"max-w-3xl mx-auto mb-12\"><div class=\"flex gap-3 bg-[#F3E4D1]/40 p-2 rounded-xl border border-[#C8A44D]/30 backdrop-blur-sm\"><input id=\"searchInput\" type=\"text\" data-bind=\"search\" data-on:input__debounce.500ms=\"@post('/products/search')\" data-on:keydown=\"evt.key === 'Enter' && @post('/products/search')\" placeholder=\"Search wellness mixes, herbal teas...\" class=\"input input-bordered w-full bg-white/70 border-[#C8A44D]/20 focus:border-[#4E5B31] focus:outline-none\"> <button data-on:click=\"@post('/products/search')\" class=\"primary-btn shrink-0 py-2 px-6\">Search</button></div></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"max-w-3xl mx-auto mb-12\"><div class=\"flex gap-3 bg-[#12100E] p-2 rounded-xl border border-[#C8A44D]/25 backdrop-blur-sm shadow-xl\"><input id=\"searchInput\" type=\"text\" data-bind=\"search\" data-on:input__debounce.500ms=\"@post('/products/search')\" data-on:keydown=\"evt.key === 'Enter' && @post('/products/search')\" placeholder=\"Search wellness mixes, herbal teas...\" class=\"input input-bordered w-full bg-[#1A1713] text-[#F3E4D1] border-[#C8A44D]/15 focus:border-[#4E5B31] focus:outline-none placeholder:text-neutral-500\"> <button data-on:click=\"@post('/products/search')\" class=\"primary-btn shrink-0 py-2 px-6\">Search</button></div></div><div class=\"mb-12 flex flex-wrap justify-center gap-4\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -183,12 +232,12 @@ func SearchSection(products_arr []backend.Product) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</div><div id=\"productGrid\" class=\"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</div><div id=\"productGrid\" class=\"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			if len(products_arr) == 0 {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"col-span-full festive-panel text-center py-16\"><p class=\"text-xl text-[#E9E2D5]\">No traditional blends found matching your criteria 😢</p></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<div class=\"col-span-full festive-panel text-center py-16\"><p class=\"text-xl text-[#E9E2D5]\">No traditional blends found matching your criteria 😢</p></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -198,7 +247,7 @@ func SearchSection(products_arr []backend.Product) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div><div id=\"pagination-wrapper\" class=\"mt-16 flex justify-center w-full\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</div><div id=\"pagination-wrapper\" class=\"mt-16 flex justify-center w-full\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -208,13 +257,13 @@ func SearchSection(products_arr []backend.Product) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Layout("Vanaushadhi - Complete Collection").Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Layout("Vanaushadhi - Complete Collection").Render(templ.WithChildren(ctx, templ_7745c5c3_Var8), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -238,26 +287,26 @@ func LoadMoreButton(lastID int) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var8 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var8 == nil {
-			templ_7745c5c3_Var8 = templ.NopComponent
+		templ_7745c5c3_Var9 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var9 == nil {
+			templ_7745c5c3_Var9 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<button id=\"pagination-controls\" class=\"secondary-btn border-[#C8A44D] text-[#D9BC72] hover:bg-[#C8A44D]/15 cursor-pointer\" data-on:click=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<button id=\"pagination-controls\" class=\"secondary-btn border-[#C8A44D] text-[#D9BC72] hover:bg-[#C8A44D]/15 cursor-pointer\" data-on:click=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var9 string
-		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs("@post('/products/next?lastID=' + " +
+		var templ_7745c5c3_Var10 string
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs("@post('/products/next?lastID=' + " +
 			strconv.Itoa(lastID) + ")")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 159, Col: 34}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 161, Col: 34}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "\">Load More Collections</button>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "\">Load More Collections</button>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -281,19 +330,38 @@ func ProductGridItems(products_arr []backend.Product) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var10 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var10 == nil {
-			templ_7745c5c3_Var10 = templ.NopComponent
+		templ_7745c5c3_Var11 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var11 == nil {
+			templ_7745c5c3_Var11 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		if len(products_arr) == 0 {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<p class=\"text-center col-span-full\">No products found 😢</p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<p class=\"text-center col-span-full\">No products found 😢</p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else {
 			for _, product := range products_arr {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<!-- <li>{ product.NameEn }</li> --> ")
+				if false {
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "<li>")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var12 string
+					templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(product.NameEn)
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 174, Col: 36}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</li>")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, " ")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -328,121 +396,154 @@ func ProductCard(product backend.Product) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var11 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var11 == nil {
-			templ_7745c5c3_Var11 = templ.NopComponent
+		templ_7745c5c3_Var13 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var13 == nil {
+			templ_7745c5c3_Var13 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		var image_url string = "https://img.magnific.com/premium-vector/acorn-logo-design-concept_761413-6644.jpg?semt=ais_hybrid&w=740&q=80"
 		if product.Image != nil {
 			image_url = *product.Image
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "<div class=\"group bg-[#12100E] border border-[#C8A44D]/20 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-[#C8A44D]/60 hover:shadow-[0_10px_30px_rgba(200,164,77,0.1)]\"><div class=\"h-64 overflow-hidden relative bg-[#1A1612] border-b border-[#C8A44D]/10 p-4\"><img src=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "<div class=\"group bg-[#12100E] border border-[#C8A44D]/20 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-[#C8A44D]/60 hover:shadow-[0_10px_30px_rgba(200,164,77,0.1)]\"><div class=\"h-64 overflow-hidden relative bg-[#1A1612] border-b border-[#C8A44D]/10 p-4\"><img src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var12 string
-		templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(image_url)
+		var templ_7745c5c3_Var14 string
+		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(image_url)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 190, Col: 32}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 194, Col: 32}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "\" alt=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var13 string
-		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(product.NameEn)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 191, Col: 37}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "\" class=\"w-full h-full object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-103\"></div><div class=\"p-6 relative z-10\"><div class=\"flex items-center justify-between\"><span class=\"text-xs font-medium uppercase tracking-wider text-[#D9BC72] bg-[#C8A44D]/10 px-2.5 py-0.5 rounded-md\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		if product.Category != "" {
-			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(product.Category)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 199, Col: 42}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "Traditions ")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</span><div class=\"text-[#C8A44D]/60 text-sm\">✦</div></div><h3 class=\"heading-font text-xl mt-3 text-[#F3E4D1] leading-tight min-h-[3rem] line-clamp-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "\" alt=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var15 string
 		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(product.NameEn)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 208, Col: 32}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 195, Col: 37}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</h3><p class=\"text-[#A69282] text-sm leading-relaxed mt-2 line-clamp-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "\" class=\"w-full h-full object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-103\"></div><div class=\"p-6 relative z-10\"><div class=\"flex items-center justify-between\"><span class=\"text-xs font-medium uppercase tracking-wider text-[#D9BC72] bg-[#C8A44D]/10 px-2.5 py-0.5 rounded-md\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		if product.Description != nil {
+		if product.Category != "" {
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(*product.Description)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(product.Category)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 213, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 203, Col: 42}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "Infused with time-tested ayurvedic methodologies. ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "Traditions ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</p><div class=\"mt-6 flex items-center justify-between pt-4 border-t border-[#C8A44D]/10\"><span class=\"text-xl font-bold text-[#D9BC72]\">₹")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</span><div class=\"text-[#C8A44D]/60 text-sm\">✦</div></div><h3 class=\"heading-font text-xl mt-3 text-[#F3E4D1] leading-tight min-h-[3rem] line-clamp-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var17 string
-		templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(product.Price))
+		templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(product.NameEn)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 221, Col: 52}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 212, Col: 32}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</span> <a href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</h3>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var18 templ.SafeURL
-		templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/products/" + strconv.Itoa(product.ID)))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 223, Col: 76}
+		if false {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "<p class=\"text-[#A69282] text-sm leading-relaxed mt-2 line-clamp-2\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if product.Description != nil {
+				var templ_7745c5c3_Var18 string
+				templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(*product.Description)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 217, Col: 46}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			} else {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "Infused with time-tested ayurvedic methodologies. ")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "<p class=\"text-[#A69282] font-bold text-lg leading-relaxed mt-2 line-clamp-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "\" class=\"primary-btn text-xs py-2 px-4 shadow-sm hover:opacity-90\">View Product</a></div></div></div>")
+		var templ_7745c5c3_Var19 string
+		templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(product.NameHi)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 224, Col: 31}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</p><div class=\"mt-6 flex items-center justify-between pt-4 border-t border-[#C8A44D]/10\"><span class=\"text-xl font-bold text-[#D9BC72]\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if false {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "₹")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var20 string
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(product.Price))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 230, Col: 56}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, " ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "In stock</span> <a href=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var21 templ.SafeURL
+		templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/products/" + strconv.Itoa(product.ID)))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 234, Col: 76}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "\" class=\"primary-btn text-xs py-2 px-4 shadow-sm hover:opacity-90\">View Product</a></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -466,16 +567,16 @@ func ProductPageView(product backend.Product) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var19 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var19 == nil {
-			templ_7745c5c3_Var19 = templ.NopComponent
+		templ_7745c5c3_Var22 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var22 == nil {
+			templ_7745c5c3_Var22 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		var image_url string = "https://img.magnific.com/premium-vector/acorn-logo-design-concept_761413-6644.jpg?semt=ais_hybrid&w=740&q=80"
 		if product.Image != nil {
 			image_url = *product.Image
 		}
-		templ_7745c5c3_Var20 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_Var23 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
 			if !templ_7745c5c3_IsBuffer {
@@ -487,85 +588,115 @@ func ProductPageView(product backend.Product) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "<div class=\"max-w-6xl mx-auto p-6 my-12 relative\"><div class=\"diya-glow -top-10 -left-10 opacity-60\"></div><!-- <div id=\"productContainer\" class=\"grid md:grid-cols-2 gap-12 items-start bg-white/30 p-8 md:p-12 rounded-3xl border border-[#C8A44D]/20 backdrop-blur-sm\">\n                \n                <div class=\"flex justify-center relative group\">\n                    <div class=\"absolute inset-0 bg-[#C8A44D]/5 rounded-2xl blur-xl transition-all group-hover:bg-[#C8A44D]/10\"></div>\n                    <img src={ image_url } \n                         class=\"rounded-2xl border border-[#C8A44D]/30 shadow-lg w-full max-w-md object-cover aspect-square relative z-10\" />\n                </div>\n\n                <div class=\"relative z-10\">\n                    <span class=\"text-xs font-semibold tracking-[0.2em] uppercase text-[#8C2F2F] bg-[#8C2F2F]/10 px-3 py-1 rounded-full\">\n                        { product.Category }\n                    </span>\n                    \n                    <h1 class=\"heading-font text-4xl md:text-5xl mt-4 mb-2 text-[#3E3026]\">{ product.NameEn }</h1>\n                    \n                    <div class=\"w-20 h-[2px] bg-[#C8A44D]/40 my-4\"></div>\n\n                    <p class=\"text-3xl font-semibold text-[#4E5B31] mb-6\">₹{ strconv.Itoa(product.Price) }</p>\n                    \n                    <h4 class=\"text-xs uppercase tracking-wider font-bold text-[#8C2F2F] mb-2\">Traditional Description</h4>\n                    <p class=\"mb-8 text-[#5A4638] leading-relaxed text-lg\">\n                        if product.Description != nil { \n                            { *product.Description } \n                        } else { \n                            Hand-milled using legacy methodologies. \n                        }\n                    </p>\n\n                    <div class=\"flex items-center gap-4 mb-8\">\n                        <span class=\"text-sm font-medium text-[#5A4638]\">Quantity:</span>\n                        <input type=\"number\" value=\"1\" min=\"1\" \n                               class=\"input input-bordered w-24 text-center bg-white/80 border-[#C8A44D]/30 focus:outline-none focus:border-[#4E5B31]\" />\n                    </div>\n\n                    <div class=\"flex flex-wrap gap-4\">\n                        <button class=\"primary-btn shadow-md text-base px-8 py-3\">\n                            Add to Cart 🛒\n                        </button>\n                        <a href=\"/shop\" class=\"secondary-btn text-base px-8 py-3 text-center border-[#5A4638]/40 hover:bg-[#5A4638]/5\">\n                            Back to Collection\n                        </a>\n                    </div>\n                </div>  \n            </div>  --><div id=\"productContainer\" class=\"grid md:grid-cols-2 gap-12 items-start text-[#eaeaea] bg-[#020a29] p-8 md:p-12 rounded-3xl border border-[#C8A44D]/20 backdrop-blur-sm\"><div class=\"flex justify-center relative group\"><div class=\"absolute inset-0 bg-[#C8A44D]/5 rounded-2xl blur-xl transition-all\"></div><img src=\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(image_url)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 292, Col: 40}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "\" class=\"rounded-2xl border border-[#C8A44D]/30 shadow-lg w-full max-w-md object-cover aspect-square relative z-10\"></div><div class=\"relative z-10\"><span class=\"text-xs font-semibold tracking-[0.2em] uppercase text-[#D9BC72] bg-[#C8A44D]/15 px-3 py-1 rounded-full\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var22 string
-			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(product.Category)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 298, Col: 42}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</span><h1 class=\"heading-font text-4xl md:text-5xl mt-4 mb-2 text-app-primary\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var23 string
-			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(product.NameEn)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 301, Col: 109}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</h1><div class=\"w-20 h-[2px] bg-[#C8A44D]/40 my-4\"></div><p class=\"text-3xl font-semibold text-[#D9BC72] mb-6\">₹")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "<div class=\"max-w-6xl mx-auto p-6 my-12 relative\"><div class=\"diya-glow -top-10 -left-10 opacity-60\"></div><div id=\"productContainer\" class=\"grid md:grid-cols-2 gap-12 items-start text-[#eaeaea] bg-[#020a29] p-8 md:p-12 rounded-3xl border border-[#C8A44D]/20 backdrop-blur-sm\"><div class=\"flex justify-center relative group\"><div class=\"absolute inset-0 bg-[#C8A44D]/5 rounded-2xl blur-xl transition-all\"></div><img src=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var24 string
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(product.Price))
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(image_url)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 305, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 258, Col: 40}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</p><h4 class=\"text-xs uppercase tracking-wider font-bold text-[#8C2F2F] mb-2\">Traditional Description</h4><p class=\"mb-8 text-app-muted leading-relaxed text-lg\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "\" class=\"rounded-2xl border border-[#C8A44D]/30 shadow-lg w-full max-w-md object-cover aspect-square relative z-10\"></div><div class=\"relative z-10\"><span class=\"text-xs font-semibold tracking-[0.2em] uppercase text-[#D9BC72] bg-[#C8A44D]/15 px-3 py-1 rounded-full\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var25 string
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(product.Category)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 264, Col: 42}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 44, "</span><h1 class=\"heading-font text-4xl md:text-5xl mt-4 mb-2 text-app-primary\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var26 string
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(product.NameEn)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 267, Col: 109}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 45, "</h1><div class=\"w-20 h-[2px] bg-[#C8A44D]/40 my-4\"></div>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if false {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 46, "<p class=\"text-3xl font-semibold text-[#D9BC72] mb-6\">₹")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var27 string
+				templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(product.Price))
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 271, Col: 110}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 47, "</p>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 48, "<h4 class=\"text-xs uppercase tracking-wider font-bold text-[#8C2F2F] mb-2\">Description</h4><p class=\"mb-8 text-app-muted leading-relaxed text-lg\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			if product.Description != nil {
-				var templ_7745c5c3_Var25 string
-				templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(*product.Description)
+				var templ_7745c5c3_Var28 string
+				templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(*product.Description)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 310, Col: 50}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 276, Col: 50}
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "Hand-milled using legacy methodologies. ")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 49, "Hand-milled using legacy methodologies. ")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</p><!-- <div class=\"flex items-center gap-4 mb-8\">\n                        <span class=\"text-sm font-medium text-app-muted\">Quantity:</span>\n                        <input type=\"number\" value=\"1\" min=\"1\" \n                            class=\"input input-bordered w-24 text-center bg-[#1A1713] text-app-primary border-[#C8A44D]/30 focus:outline-none focus:border-[#4E5B31]\" />\n                    </div> --><div class=\"flex flex-wrap gap-4\"><button class=\"primary-btn shadow-md text-base px-8 py-3\">Add to Cart 🛒</button> <a href=\"/shop\" class=\"secondary-btn text-base px-8 py-3 text-center border-[#C8A44D]/40 text-[#D9BC72] hover:bg-[#C8A44D]/10\">Back to Collection</a></div></div></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 50, "</p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if false {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 51, "<div class=\"flex items-center gap-4 mb-8\"><span class=\"text-sm font-medium text-app-muted\">Quantity:</span> <input type=\"number\" value=\"1\" min=\"1\" class=\"input input-bordered w-24 text-center bg-[#1A1713] text-app-primary border-[#C8A44D]/30 focus:outline-none focus:border-[#4E5B31]\"></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 52, "<div class=\"flex flex-wrap gap-4\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if false {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 53, "<button class=\"primary-btn shadow-md text-base px-8 py-3\">Add to Cart 🛒</button> ")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 54, "<a href=\"/shop\" class=\"secondary-btn text-base px-8 py-3 text-center border-[#C8A44D]/40 text-[#D9BC72] hover:bg-[#C8A44D]/10\">Back to Collection</a></div></div></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Layout(product.NameEn+" - Vanaushadhi").Render(templ.WithChildren(ctx, templ_7745c5c3_Var20), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Layout(product.NameEn+" - Vanaushadhi").Render(templ.WithChildren(ctx, templ_7745c5c3_Var23), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
