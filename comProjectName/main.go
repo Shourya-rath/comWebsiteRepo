@@ -9,6 +9,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+    "embed"
+    // "io/fs" // <-- THIS FIXES: "undefined: fs"
 
 	"github.com/a-h/templ"
 	"github.com/jackc/pgx/v5"
@@ -282,6 +284,10 @@ func ContactPage(w http.ResponseWriter, r *http.Request) {
 	Image       *string
 	Description *string
 } */
+
+// Following comment is necessary
+//go:embed static
+var staticEmbedFS embed.FS
 func main() {
     
     appEnv := os.Getenv("APP_ENV")
@@ -306,10 +312,10 @@ func main() {
 	
     
     // 2. Serve Static Assets (Important for output.css, theme.css, and images)
-    // fs := http.FileServer(http.Dir("static"))
-    // http.Handle("/static/", http.StripPrefix("/static/", fs))
-    // Inside your main.go file
-
+    /*fs := http.FileServer(http.Dir("static"))
+    http.Handle("/static/", http.StripPrefix("/static/", fs))
+    */
+    /*
     fs := http.FileServer(http.Dir("static"))
 
     // Create a custom handler to fix Vercel's missing MIME type environment maps
@@ -323,7 +329,29 @@ func main() {
 
     // Bind it to your mux
     http.Handle("/static/", staticHandler)
+    */
+    // 3. Extract the "static" sub-filesystem safely
+	
+    // 2. Serve Static Assets (Embedded and explicitly typed for Vercel)
+    // 1. Pass the raw embedded filesystem straight to the file server
+    fileServer := http.FileServer(http.FS(staticEmbedFS))
 
+    // 2. Handle the route with the MIME type fix
+    staticHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        // Explicitly set the CSS header to satisfy the browser's strict nosniff requirement
+        if strings.HasSuffix(r.URL.Path, ".css") {
+            w.Header().Set("Content-Type", "text/css; charset=utf-8")
+        }
+        
+        // CRITICAL: Do NOT use http.StripPrefix here.
+        // The filesystem contains the "static" folder at its root level,
+        // so it needs the incoming path to keep "/static/css/theme.css" intact!
+        fileServer.ServeHTTP(w, r)
+    })
+
+    // Bind it directly to the global HTTP router
+    http.Handle("/static/", staticHandler)
+    
     http.HandleFunc("/", LandingPage)                           
     http.HandleFunc("/shop", Home)  
     http.HandleFunc("/contact/",ContactPage)                            
