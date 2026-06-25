@@ -21,21 +21,29 @@ type Product struct {
 }
 
 var Pool *pgxpool.Pool
+
 func Connect() error {
-	database_url := os.Getenv("DATABASE_URL")
-	pool, err := pgxpool.New(
-		context.Background(),
-		// os.Getenv("DATABASE_URL"),
-		database_url,
-	)
+    database_url := os.Getenv("DATABASE_URL")
+    
+    // 1. Parse the string into a configuration struct first
+    config, err := pgxpool.ParseConfig(database_url)
+    if err != nil {
+        return fmt.Errorf("unable to parse database config: %w", err)
+    }
 
-	if err != nil {
-		return err
-	}
+    // 2. Limit maximum connections per serverless container instance
+    // A max of 2 connections per instance is plenty for swift Datastar swappings 
+    // and keeps your database from choking during traffic spikes.
+    config.MaxConns = 2
 
-	Pool = pool
+    // 3. Create the pool using your customized configuration
+    pool, err := pgxpool.NewWithConfig(context.Background(), config)
+    if err != nil {
+        return fmt.Errorf("unable to create connection pool: %w", err)
+    }
 
-	return nil
+    Pool = pool
+    return nil
 }
 // instead of fetching by start and end 
 // it fetch by number of products (limit)
