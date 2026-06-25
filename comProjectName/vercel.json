@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/main.go"
+    }
+  ]
+}
