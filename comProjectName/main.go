@@ -85,8 +85,12 @@ func Home(w http.ResponseWriter, r *http.Request) {
 }
 func ProductsPage(w http.ResponseWriter, r *http.Request) {
     
-    id := strings.TrimPrefix(r.URL.Path,"/products/")
-    product,err := backend.GetSingleProduct(strconv.Atoi(id))
+    slug := strings.TrimPrefix(r.URL.Path, "/products/")
+    if slug == "" {
+	    http.NotFound(w, r)
+	    return
+    }
+    product, err := backend.GetProductBySlug(slug)
     if err != nil {
 
 		if errors.Is(err, pgx.ErrNoRows) {
@@ -356,8 +360,8 @@ func main() {
     http.HandleFunc("/shop", Home)  
     http.HandleFunc("/contact/",ContactPage)                            
     http.HandleFunc("/products/",ProductsPage)
-    http.HandleFunc("/products/next", HandleNextProducts)
-    http.HandleFunc("/products/search", HandleSearchProducts)
+    http.HandleFunc("/shop/next", HandleNextProducts)
+    http.HandleFunc("/shop/search", HandleSearchProducts)
     
     fmt.Println("server engine hosting live at http://localhost:",port)
     log.Fatal(http.ListenAndServe(":" + port, nil))

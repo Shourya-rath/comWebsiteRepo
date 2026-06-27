@@ -207,12 +207,12 @@ func SearchSection(products_arr []backend.Product) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			if false {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"max-w-3xl mx-auto mb-12\"><div class=\"flex gap-3 bg-[#F3E4D1]/40 p-2 rounded-xl border border-[#C8A44D]/30 backdrop-blur-sm\"><input id=\"searchInput\" type=\"text\" data-bind=\"search\" data-on:input__debounce.500ms=\"@post('/products/search')\" data-on:keydown=\"evt.key === 'Enter' && @post('/products/search')\" placeholder=\"Search wellness mixes, herbal teas...\" class=\"input input-bordered w-full bg-white/70 border-[#C8A44D]/20 focus:border-[#4E5B31] focus:outline-none\"> <button data-on:click=\"@post('/products/search')\" class=\"primary-btn shrink-0 py-2 px-6\">Search</button></div></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"max-w-3xl mx-auto mb-12\"><div class=\"flex gap-3 bg-[#F3E4D1]/40 p-2 rounded-xl border border-[#C8A44D]/30 backdrop-blur-sm\"><input id=\"searchInput\" type=\"text\" data-bind=\"search\" data-on:input__debounce.500ms=\"@post('/shop/search')\" data-on:keydown=\"evt.key === 'Enter' && @post('/shop/search')\" placeholder=\"Search wellness mixes, herbal teas...\" class=\"input input-bordered w-full bg-white/70 border-[#C8A44D]/20 focus:border-[#4E5B31] focus:outline-none\"> <button data-on:click=\"@post('/shop/search')\" class=\"primary-btn shrink-0 py-2 px-6\">Search</button></div></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"max-w-3xl mx-auto mb-12\"><div class=\"flex gap-3 bg-[#12100E] p-2 rounded-xl border border-[#C8A44D]/25 backdrop-blur-sm shadow-xl\"><input id=\"searchInput\" type=\"text\" data-bind=\"search\" data-on:input__debounce.500ms=\"@post('/products/search')\" data-on:keydown=\"evt.key === 'Enter' && @post('/products/search')\" placeholder=\"Search wellness mixes, herbal teas...\" class=\"input input-bordered w-full bg-[#1A1713] text-[#F3E4D1] border-[#C8A44D]/15 focus:border-[#4E5B31] focus:outline-none placeholder:text-neutral-500\"> <button data-on:click=\"@post('/products/search')\" class=\"primary-btn shrink-0 py-2 px-6\">Search</button></div></div><div class=\"mb-12 flex flex-wrap justify-center gap-4\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"max-w-3xl mx-auto mb-12\"><div class=\"flex gap-3 bg-[#12100E] p-2 rounded-xl border border-[#C8A44D]/25 backdrop-blur-sm shadow-xl\"><input id=\"searchInput\" type=\"text\" data-bind=\"search\" data-on:input__debounce.500ms=\"@post('/shop/search')\" data-on:keydown=\"evt.key === 'Enter' && @post('/shop/search')\" placeholder=\"Search wellness mixes, herbal teas...\" class=\"input input-bordered w-full bg-[#1A1713] text-[#F3E4D1] border-[#C8A44D]/15 focus:border-[#4E5B31] focus:outline-none placeholder:text-neutral-500\"> <button data-on:click=\"@post('/shop/search')\" class=\"primary-btn shrink-0 py-2 px-6\">Search</button></div></div><div class=\"mb-12 flex flex-wrap justify-center gap-4\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -297,7 +297,7 @@ func LoadMoreButton(lastID int) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var10 string
-		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs("@post('/products/next?lastID=' + " +
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs("@post('/shop/next?lastID=' + " +
 			strconv.Itoa(lastID) + ")")
 		if templ_7745c5c3_Err != nil {
 			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 161, Col: 34}
@@ -535,9 +535,9 @@ func ProductCard(product backend.Product) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var21 templ.SafeURL
-		templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/products/" + strconv.Itoa(product.ID)))
+		templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/products/" + product.Slug))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 234, Col: 76}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/components.templ`, Line: 234, Col: 64}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 		if templ_7745c5c3_Err != nil {

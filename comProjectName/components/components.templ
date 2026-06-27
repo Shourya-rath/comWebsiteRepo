@@ -97,12 +97,12 @@ templ SearchSection(products_arr []backend.Product){
                         <input id="searchInput"
                             type="text"
                             data-bind="search"
-                            data-on:input__debounce.500ms="@post('/products/search')"
-                            data-on:keydown="evt.key === 'Enter' && @post('/products/search')"
+                            data-on:input__debounce.500ms="@post('/shop/search')"
+                            data-on:keydown="evt.key === 'Enter' && @post('/shop/search')"
                             placeholder="Search wellness mixes, herbal teas..."
                             class="input input-bordered w-full bg-white/70 border-[#C8A44D]/20 focus:border-[#4E5B31] focus:outline-none" />
 
-                        <button data-on:click="@post('/products/search')"
+                        <button data-on:click="@post('/shop/search')"
                                 class="primary-btn shrink-0 py-2 px-6">
                             Search
                         </button>
@@ -115,12 +115,12 @@ templ SearchSection(products_arr []backend.Product){
                     <input id="searchInput"
                         type="text"
                         data-bind="search"
-                        data-on:input__debounce.500ms="@post('/products/search')"
-                        data-on:keydown="evt.key === 'Enter' && @post('/products/search')"
+                        data-on:input__debounce.500ms="@post('/shop/search')"
+                        data-on:keydown="evt.key === 'Enter' && @post('/shop/search')"
                         placeholder="Search wellness mixes, herbal teas..."
                         class="input input-bordered w-full bg-[#1A1713] text-[#F3E4D1] border-[#C8A44D]/15 focus:border-[#4E5B31] focus:outline-none placeholder:text-neutral-500" />
 
-                    <button data-on:click="@post('/products/search')"
+                    <button data-on:click="@post('/shop/search')"
                             class="primary-btn shrink-0 py-2 px-6">
                         Search
                     </button>
@@ -157,7 +157,7 @@ templ LoadMoreButton(lastID int){
     <button id="pagination-controls" 
             class="secondary-btn border-[#C8A44D] text-[#D9BC72] hover:bg-[#C8A44D]/15 cursor-pointer"
     data-on:click={ 
-        "@post('/products/next?lastID=' + " + 
+        "@post('/shop/next?lastID=' + " + 
         strconv.Itoa(lastID) + ")" 
     }
     >
@@ -231,7 +231,7 @@ templ ProductCard(product backend.Product){
                     }
                     In stock
                 </span>
-                <a href={ templ.URL("/products/" + strconv.Itoa(product.ID)) }
+                <a href={ templ.URL("/products/" + product.Slug) }
                    class="primary-btn text-xs py-2 px-4 shadow-sm hover:opacity-90">
                     View Product
                 </a>

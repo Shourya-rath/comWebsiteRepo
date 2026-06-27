@@ -143,6 +143,43 @@ func GetSingleProduct(id int, fail error)(*Product, error){
 	return product,err
 }
 
+func GetProductBySlug(slug string) (*Product, error) {
+	query := `
+		SELECT
+			id,
+			name_en,
+			name_hi,
+			slug,
+			price,
+			category,
+			image,
+			description
+		FROM products
+		WHERE slug = $1
+	`
+
+	var product *Product = &Product{} ;
+	err := Pool.QueryRow(
+		context.Background(),
+		query,
+		slug,
+	).Scan(
+		&product.ID,
+		&product.NameEn,
+		&product.NameHi,
+		&product.Slug,
+		&product.Price,
+		&product.Category,
+		&product.Image,
+		&product.Description,
+	)
+	
+	if err != nil {
+		return nil, err
+	}
+	return product,err
+}
+
 // SearchProductsFuzzy queries products using pg_trgm for typo-tolerant matching
 func SearchProductsFuzzy(searchQuery string, limit int) ([]Product, error) {
     // The % operator uses the trigram index to find matches.
