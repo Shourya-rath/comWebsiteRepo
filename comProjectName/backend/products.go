@@ -18,6 +18,13 @@ type Product struct {
 	Category    string
 	Image       *string
 	Description *string
+
+	ShortDescription *string
+	Benefits         *string
+	Usage            *string
+	Precautions      *string
+	Ingredients      *string
+	MetaDescription  *string
 }
 
 var Pool *pgxpool.Pool
