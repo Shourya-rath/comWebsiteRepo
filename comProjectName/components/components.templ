@@ -7,18 +7,59 @@ import (
 
     "comProjectName/backend"
     )
-templ Layout(title string) {
+
+type SiteMeta struct {
+    Title       string
+    Description string
+    Image       string
+    Canonical   string
+    JsonLD      string
+}
+// Helper method to automatically fill out missing fields
+func (m SiteMeta) Normalize() SiteMeta {
+    if m.Title == "" {
+        m.Title = "Ayurvedic Shop Udaipur"
+    }
+    if m.Description == "" {
+        // Safe global fallback text for your local store
+        m.Description = "Discover authentic Ayurvedic herbs, traditional remedies, and herbal powders in Udaipur."
+    }
+    if m.Image == "" {
+        m.Image = "/static/images/default-share.jpg" // fallback share image
+    }
+    return m
+}
+templ Layout(meta SiteMeta) {
+    {{ normalized := meta.Normalize() }}
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{title}</title>
+        
+        <!-- SEO related tags -->
+        <title>{normalized.Title}</title>
+        <meta name="description" content={ normalized.Description }/>
+        if normalized.Canonical != "" {
+            <link rel="canonical" href={ normalized.Canonical } />
+        }
+        if normalized.JsonLD != "" {
+            @templ.Raw(normalized.JsonLD)
+        }
+        <!-- Open Graph / Facebook -->
+        <meta property="og:title" content={ normalized.Title }/>
+        <meta property="og:description" content={ normalized.Description }/>
+        <meta property="og:image" content={ normalized.Image }/>
+        <meta property="og:type" content="product"/>
+        
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content={ normalized.Title }/>
+        <meta name="twitter:description" content={ normalized.Description }/>
+        <meta name="twitter:image" content={ normalized.Image }/>
 
 
         <!-- Datastar CDN -->
-        <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@1.0.0-RC.8/bundles/datastar.js">
-        </script>
+        <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@1.0.0-RC.8/bundles/datastar.js"></script>
         
         <!-- Tailwind + DaisyUI CDN -->
                 
@@ -83,7 +124,9 @@ templ CategoryBreadcrumb(str string){
 contains everything in page except the Nav Bar
 */
 templ SearchSection(products_arr []backend.Product){
-    @Layout("Vanaushadhi - Complete Collection"){
+    @Layout(
+        SiteMeta{Title: "Vanaushadhi - Complete Collection"},
+    ){
         <div class="content-width py-16 relative z-10" data-signals="{search: ''}">
             
             <div class="text-center mb-16">
@@ -240,13 +283,15 @@ templ ProductCard(product backend.Product){
     </div>
 }
 
-templ ProductPageView(product backend.Product){
+// --------------Obsolete Product Page View----------------
+templ ProductPageView2(product backend.Product){
     {{ var image_url string = "https://img.magnific.com/premium-vector/acorn-logo-design-concept_761413-6644.jpg?semt=ais_hybrid&w=740&q=80" }}
     if product.Image != nil {
         {{ image_url = *product.Image }}
     }
-
-    @Layout(product.NameEn + " - Vanaushadhi"){
+    @Layout(
+        SiteMeta{Title: product.NameEn + " - Vanaushadhi"},
+    ){
         <div class="max-w-6xl mx-auto p-6 my-12 relative">
             
             <div class="diya-glow -top-10 -left-10 opacity-60"></div>

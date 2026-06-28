@@ -109,6 +109,52 @@ func GetProductsAfterID(lastID int, limit int) ([]Product, error) {
 
 	return products, nil
 }
+func GetRelatedProducts(currentID int, limit int) ([]Product, error) {
+	// This query loops the table sequentially by ordering by how far 
+	// away an ID is from the current product.
+	query := `
+		SELECT 
+			id, 
+			name_en, 
+			name_hi, 
+			slug, 
+			price, 
+			category, 
+			image, 
+			description
+		FROM products
+		WHERE id != $1
+		ORDER BY (id > $1) DESC, id ASC
+		LIMIT $2
+	`
+
+	rows, err := Pool.Query(context.Background(), query, currentID, limit)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var products []Product
+	for rows.Next() {
+		var p Product
+		err := rows.Scan(
+			&p.ID, 
+			&p.NameEn, 
+			&p.NameHi, 
+			&p.Slug, 
+			&p.Price, 
+			&p.Category, 
+			&p.Image, 
+			&p.Description,
+		)
+		if err != nil {
+			return nil, err
+		}
+		products = append(products, p)
+	}
+
+	return products, nil
+}
 func GetSingleProduct(id int, fail error)(*Product, error){
 	if fail != nil {
 		fmt.Println("failed parsing the string properly")
