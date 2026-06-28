@@ -1,0 +1,205 @@
+package components
+
+import (
+    // "strconv"
+    "os"
+    "fmt"
+    "encoding/json"
+
+    "comProjectName/backend"
+    )
+
+templ ProductPageView(product backend.Product) {
+    
+    {{ 
+        related, _ := backend.GetRelatedProducts(product.ID, 4) ; _ = related 
+        var imageURL string = "https://img.magnific.com/premium-vector/acorn-logo-design-concept_761413-6644.jpg?semt=ais_hybrid&w=740&q=80" ; _ = imageURL 
+        
+        // desc_filler := "No description available."
+        //     if product.Description == nil {
+        //         product.Description = &desc_filler
+        // }
+        seoTitle := product.NameEn + " | Vanaushadhi"
+        canonicalURL := os.Getenv("SITE_URL") + "/products/" + product.Slug
+        seoDescription := ""
+        if product.MetaDescription != nil && *product.MetaDescription != "" {
+            seoDescription = *product.MetaDescription
+        } else if product.ShortDescription != nil && *product.ShortDescription != "" {
+            seoDescription = *product.ShortDescription
+        } else if product.Description != nil {
+            seoDescription = *product.Description
+        } else {
+            seoDescription = "Traditional Ayurvedic herbal product available at Vanaushadhi."
+        }
+
+        if product.Image != nil {
+            {{ imageURL = *product.Image }}
+        }
+
+        jsonLDData := map[string]interface{}{
+            "@context":    "https://schema.org",
+            "@type":       "Product",
+            "name":        product.NameEn,
+            "description": seoDescription,
+            "image":       imageURL,
+        }
+
+        jsonLDBytes, _ := json.Marshal(jsonLDData)
+        jsonLDString := fmt.Sprintf("<script type=\"application/ld+json\">%s</script>", string(jsonLDBytes))
+
+    }}
+    
+    
+
+    @Layout(SiteMeta{
+        Title:       seoTitle,
+        Canonical:   canonicalURL,
+        Description: seoDescription,
+        Image:       imageURL,
+        JsonLD:      jsonLDString,
+    }){
+        <div class="max-w-6xl mx-auto p-6 my-12 relative">
+            <div class="diya-glow -top-10 -left-10 opacity-60"></div>
+            
+            <div id="productContainer" 
+                class="grid md:grid-cols-2 gap-12 items-start text-[#eaeaea] 
+                bg-[#020a29] p-8 md:p-12 rounded-3xl border border-[#C8A44D]/20 
+                backdrop-blur-sm">
+                
+                @ProductImage(imageURL, product.Category)
+
+                <div class="relative z-10">
+                    
+                    @ProductHeader(product.NameEn, product.Category)
+                    if false{
+                      <!--  <p class="text-3xl font-semibold text-[#D9BC72] mb-6">₹{ strconv.Itoa(product.Price) }</p> -->
+                    }
+                    @ProductDescription(product.Description)
+                    if false{ 
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-sm font-medium text-app-muted">Quantity:</span>
+                            <input type="number" value="1" min="1" 
+                                class="input input-bordered w-24 text-center bg-[#1A1713] text-app-primary border-[#C8A44D]/30 focus:outline-none focus:border-[#4E5B31]" />
+                        </div> 
+                    }
+                    
+                    @Section("About This Product") {
+                        if product.MetaDescription != nil {
+                            { *product.MetaDescription }
+                        } else {
+                            Traditional Ayurvedic formulation used for general wellness and balance.
+                        }
+                    }
+                    if product.Benefits != nil {
+                        @Section("Benefits") {
+                            { *product.Benefits }
+                        }
+                    }
+                    if product.Usage != nil {
+                        @Section("Usage") {
+                            { *product.Usage }
+                        }
+                    }
+                    if product.Ingredients != nil {
+                        @Section("Ingredients") {
+                            { *product.Ingredients }
+                        }
+                    }
+                    if product.Precautions != nil {
+                        @Section("Precautions") {
+                            { *product.Precautions }
+                        }
+                    }
+                    
+                    // More Ayurvedic Products section
+                    if len(related) > 0 {
+                        @Section("More Ayurvedic Products") {
+
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+
+                                for _, p := range related {
+
+                                    <a href={"/products/" + p.Slug}
+                                    class="block bg-[#0b1220] border border-[#C8A44D]/20 rounded-xl p-3 hover:scale-[1.03] transition">
+                                        <img src="https://img.magnific.com/premium-vector/acorn-logo-design-concept_761413-6644.jpg?semt=ais_hybrid&w=740&q=80"
+                                            class="rounded-md mb-2 aspect-square object-cover" />
+                                        if false {
+                                            if product.Image != nil {
+                                                <img src={ *product.Image } 
+                                                    class="rounded-md mb-2 aspect-square object-cover" />
+                                            }
+                                        }
+                                        <div class="text-sm font-semibold text-[#D9BC72]">
+                                            { p.NameEn }
+                                        </div>
+                                    </a>
+                                }
+
+                            </div>
+
+                        }
+                    }
+                    
+                    // Buttons
+                    <div class="flex flex-wrap gap-4">
+                        if false {
+                            <button class="primary-btn shadow-md text-base px-8 py-3">
+                                Add to Cart 🛒
+                            </button>
+                        }
+                        <a href="/shop" 
+                        class="secondary-btn text-base px-8 py-3 text-center border-[#C8A44D]/40 text-[#D9BC72] hover:bg-[#C8A44D]/10">
+                            Back to Collection
+                        </a>
+                    </div>
+                
+                </div>
+            
+            </div>
+        </div>
+    }
+}
+
+templ ProductImage(imageURL, category string) {
+    <div class="flex justify-center relative group">
+        <div class="absolute inset-0 bg-[#C8A44D]/5 rounded-2xl blur-xl transition-all"></div>
+        <img src={ imageURL } 
+            class="rounded-2xl border border-[#C8A44D]/30 shadow-lg w-full max-w-md object-cover aspect-square relative z-10" />
+    </div>
+}
+
+templ ProductHeader(name, category string) {
+    <span class="text-xs font-semibold tracking-[0.2em] uppercase text-[#D9BC72] bg-[#C8A44D]/15 px-3 py-1 rounded-full">
+        { category }
+    </span>
+    
+    <h1 class="heading-font text-4xl md:text-5xl mt-4 mb-2 text-app-primary">
+        { name }
+    </h1>
+    
+    <div class="w-20 h-[2px] bg-[#C8A44D]/40 my-4"></div>
+}
+
+templ ProductDescription(description* string) {
+    <h4 class="text-xs uppercase tracking-wider font-bold text-[#8C2F2F] mb-2">
+        Description
+    </h4>
+    <p class="mb-8 text-app-muted leading-relaxed text-lg">
+        if description != nil { 
+            { *description } 
+        } else { 
+            Hand-milled using legacy methodologies. 
+        }
+    </p>
+}
+
+templ Section(title string) {
+    <div class="mb-8">
+        <h2 class="text-xl font-bold text-[#D9BC72] mb-2">
+            {title }
+        </h2>
+        <div class="text-app-muted">
+            {children...}
+        </div>
+    </div>
+}
