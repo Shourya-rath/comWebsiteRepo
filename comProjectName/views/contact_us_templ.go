@@ -53,6 +53,10 @@ func ContactSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
+		templ_7745c5c3_Err = Navbar().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"diya-glow top-6 left-6 md:top-10 md:left-10\"></div><div class=\"diya-glow bottom-6 right-6 md:bottom-10 md:right-10\"></div><div class=\"content-width relative z-10 px-4 md:px-0\"><!-- HEADER --><div class=\"text-center\"><p class=\"subheading text-[#d86060] text-sm md:text-base\">Get In Touch</p><h1 class=\"heading-font text-4xl md:text-6xl lg:text-7xl mt-4 md:mt-6 text-[#daa520] leading-tight\">Contact Us</h1>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -210,7 +214,7 @@ func ContactLabel(label string) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(label)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/contact_us.templ`, Line: 120, Col: 52}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/contact_us.templ`, Line: 122, Col: 52}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
