@@ -29,7 +29,7 @@ func HeritageSection() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"py-32 relative\"><div class=\"diya-glow top-10 left-10\"></div><div class=\"diya-glow bottom-0 right-10\"></div><div class=\"content-width\"><div class=\"quote-panel px-10 py-24 text-center paper-texture\"><p class=\"subheading\">Inspired By Tradition</p>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"py-20 relative\"><div class=\"diya-glow top-10 left-10\"></div><div class=\"diya-glow bottom-0 right-10\"></div><div class=\"content-width\"><div class=\"quote-panel px-10 py-24 text-center paper-texture\"><p class=\"subheading\">Inspired By Tradition</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

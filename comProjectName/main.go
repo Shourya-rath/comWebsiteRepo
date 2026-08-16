@@ -278,6 +278,16 @@ func ContactPage(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "Internal Server Error", http.StatusInternalServerError)
     }
 }
+func AboutPage(w http.ResponseWriter, r *http.Request) {
+    //  pageTitle := "Vanaushadhi | About Us"
+    component := components.AboutPage()
+    templ.Handler(component).ServeHTTP(w, r)
+}
+func ShopUdaipurPage(w http.ResponseWriter, r *http.Request) {
+    //  pageTitle := "Vanaushadhi | About Us"
+    component := components.ShopUdaipurPage()
+    templ.Handler(component).ServeHTTP(w, r)
+}
 /* type Product struct {
 	ID          int
 	NameEn      string
@@ -357,8 +367,10 @@ func main() {
     http.Handle("/static/", staticHandler)
     
     http.HandleFunc("/", LandingPage)                           
+    http.HandleFunc("/contact/{$}",ContactPage)                            
+    http.HandleFunc("/about/{$}",AboutPage)                            
+    http.HandleFunc("/ayurvedic-shop-udaipur/{$}",ShopUdaipurPage)                            
     http.HandleFunc("/shop", Home)  
-    http.HandleFunc("/contact/",ContactPage)                            
     http.HandleFunc("/products/",ProductsPage)
     http.HandleFunc("/shop/next", HandleNextProducts)
     http.HandleFunc("/shop/search", HandleSearchProducts)
