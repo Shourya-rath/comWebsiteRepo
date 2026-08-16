@@ -1,0 +1,33 @@
+{
+  "name": "comWebsiteRepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --minify",
+    "watch:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch"
+  },
+  "keywords": [],
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shourya-rath/comWebsiteRepo.git"
+  },
+
+
+
+  "bugs": {
+    "url": "https://github.com/Shourya-rath/comWebsiteRepo/issues"
+  },
+  "homepage": "https://github.com/Shourya-rath/comWebsiteRepo#readme",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  },
+  "dependencies": {
+    "daisyui": "^5.5.20"
+  }
+}
