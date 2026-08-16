@@ -34,3 +34,4 @@ go.work.sum
 *documentation/
 output.txt
 comProjectName_exe
+node_modules
