@@ -4,10 +4,10 @@ templ Index() {
 	<div class="page-container">
 		@RangoliBackground()
 
-		@OrnamentalBorder("top-left", true )
-		@OrnamentalBorder("top-right", true )
-		@OrnamentalBorder("bottom-left", true )
-		@OrnamentalBorder("bottom-right", true )
+		@OrnamentalBorder("top-left", false )
+		@OrnamentalBorder("top-right", false )
+		@OrnamentalBorder("bottom-left", false )
+		@OrnamentalBorder("bottom-right", false )
 
 		@Navbar()
 
@@ -16,5 +16,7 @@ templ Index() {
 		@ProductSection()
 		
 		@HeritageSection()
+
+		@FAQSection()
 	</div>
 }

@@ -37,19 +37,19 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = OrnamentalBorder("top-left", true).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = OrnamentalBorder("top-left", false).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = OrnamentalBorder("top-right", true).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = OrnamentalBorder("top-right", false).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = OrnamentalBorder("bottom-left", true).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = OrnamentalBorder("bottom-left", false).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = OrnamentalBorder("bottom-right", true).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = OrnamentalBorder("bottom-right", false).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -66,6 +66,10 @@ func Index() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = HeritageSection().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = FAQSection().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
